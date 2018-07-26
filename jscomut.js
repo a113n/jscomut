@@ -437,7 +437,7 @@ function Comut() {
                 .attr('text-anchor', 'end')
                 .attr('y', 1+_this.scales.gridY.bandwidth() / 2)
                 .attr('dominant-baseline', 'middle')
-                .text(function (d) { return (d.value / _this.data.genomic.samples.length * 100).toFixed(0) + '%'; });
+                .text(function (d) { return (d.value / _this.data.demographics.samples.length * 100).toFixed(0) + '%'; });
 
             _this.geneLegend.selectAll('.gene')
                 .data(data.genes)
