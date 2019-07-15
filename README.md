@@ -5,6 +5,9 @@ This guide contains information for:
 - [developers](#for-developers): how to add the widget and interact with it using javascript
 - [users](#for-users): how to use the widget to interact with your data
 
+# Demo site
+[Check it out in action!](https://pearcetm.github.io/jscomut)
+
 # For developers
 ## Adding the widget to a webpage
 ### Include the following scripts:
@@ -182,7 +185,7 @@ Let's get started.
 4) Once you're satisfied, click the **Create widget** button.
 
 ## Use the different interaction modes to explore your data
-Once your data is drawn into the plot, you can start exploring. The *Drag-and-drop* mode lets you re-order the grid of data by clicking on the grid and moving vertically (to re-order the genes) and/or horizontally (to re-order the samples). If there are a lot of samples and the grid is compressed, the *Pan and zoom* mode lets you zoom in and move around inside the grid. Choosing *None* lets you safely click around on the graphic without worrying about moving things inadvertently.
+Once your data is drawn into the plot, you can start exploring. The *Drag-and-drop* mode lets you re-order the grid data by clicking on the grid or the gene names and moving vertically to re-order the genes. Similarly, clicking on the grid or sample names and moving horizontally allows for re-ordering the samples. If there are a lot of samples and the grid is compressed, the *Pan and zoom* mode lets you zoom in and move around inside the grid. Choosing *None* lets you safely click around on the graphic without worrying about moving things inadvertently.
 
 If the widget is configured to let you automatically sort the data by genes or by samples, there may be buttons for this as well.
 
@@ -197,23 +200,29 @@ The first row of the file should contain the column names (gene, sample, type, a
 1) A sample with a genetic alteration
 2) Only a sample id (for samples with no detected alterations - only one row is needed)
 
+If a sample has multiple alterations, each one belongs on a separate row
+
 For example: 
 ```
-sample      gene      type      alteration
-Case1       braf      missense  V600E
+Sample      Gene      Type      Alteration
+Case1       BRAF      missense  c.1799T>A;p.V600E
 Case2                                     
-Case3       rb1       fs        c.2657delG
+Case3       RB1       fs        c.2657delG
+Case3       RB1       del                 
  ```
  
  All other non-altered data points will be automatically filled in.
  
  ### Demographic data
- The first row of the file should contain the column names. The only required column is "sample", because this links the demographic data to the genomic data. Other columns can contain any type of desired data. The configuration process allows you to select which columns to use in the plot.
+ The first row of the file should contain the column names. The only required column is "sample", because this links the demographic data to the genomic data. Other columns can contain any type of desired data. The configuration process allows you to select which columns to use in the plot. The columns should be tab-separated, and the text in each header will become the label for the corresponding row of demographic data (non-tab white space is allowed).
  
  For example: 
 ```
-sample      gender      tumor site
+Sample      Gender      Tumor site
 Case1       female      thyroid
 Case2       male        bladder
 Case3       female      lung
  ```
+
+### Disclaimer
+*This software is provided by the copyright holders and contributors "as is" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright holder or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage. The output of this software does not constitute medical advice and should not supplant appropriate medical judgment.*

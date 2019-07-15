@@ -86,10 +86,16 @@ input{
 	margin-right:10px;
 }
 /********* Comut widget styling **********/
-svg[interaction=dnd] .draggable-xy{
+svg[interaction=dnd] .draggable-x.draggable-y{
     cursor:all-scroll;
 }
-svg[interaction=zp] .draggable-xy{
+svg[interaction=dnd] .draggable-x{
+    cursor:col-resize;
+}
+svg[interaction=dnd] .draggable-y{
+    cursor:row-resize;
+}
+svg[interaction=zp] .draggable-x.draggable-y{
     cursor:-webkit-zoom-grab;
 }
 #comut-svg{
@@ -185,3 +191,5 @@ svg[interaction=zp] .draggable-xy{
 	font-weight: normal;
     font-style: italic;
 }
+
+
